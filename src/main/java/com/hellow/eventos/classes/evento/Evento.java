@@ -1,8 +1,9 @@
-package com.hellow.eventos.classes.com.hellow.eventos.classes;
+package com.hellow.eventos.classes.evento;
 
 import com.hellow.eventos.classes.endereco.Endereco;
 import com.hellow.eventos.classes.tipo.Tipo;
 import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -25,6 +26,9 @@ public class Evento {
     private String descricao;
     private Integer lotacao;
     @ManyToOne
-    private Endereco endereco;
-    private Tipo tipo;
+    @JoinColumn(name="id_endereco")
+    private Endereco endereco_id;
+    @ManyToOne
+    @JoinColumn(name="id_tipo")
+    private Tipo tipo_id;
 }
